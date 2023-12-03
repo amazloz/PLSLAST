@@ -1,8 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { useLogoutMutation } from "../../slices/usersApiSlice";
+import { logout } from "../../slices/authSlice";
 import "./AfterNavbar.css";
 
 const AfterNavbar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [logoutUser] = useLogoutMutation();
+
+  const logoutHandler = async () => {
+    try {
+      await logoutUser().unwrap();
+      dispatch(logout());
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <nav>
       <Link to="/" className="logo">
@@ -19,6 +38,9 @@ const AfterNavbar = () => {
           Friends
         </Link>
       </div>
+      <Link className="btn" onClick={logoutHandler}>
+        Log out
+      </Link>
     </nav>
   );
 };

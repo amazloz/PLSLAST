@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import about from "../media/about.png";
 import globe from "../media/globe.png";
 import main from "../media/main.png";
 import BeforeNavbar from "../components/Navbar/BeforeNavbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
+
+  const { userInfo } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/userprofile");
+    }
+  }, [userInfo, navigate]);
+
   return (
     <div id="home">
       <BeforeNavbar />

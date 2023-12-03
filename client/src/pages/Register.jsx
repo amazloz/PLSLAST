@@ -1,11 +1,20 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { useRegisterMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
 import Navbar from "../components/Navbar/Navbar";
 
 export default function Register() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [registeruser] = useRegisterMutation();
+
+  const { userInfo } = useSelector((state) => state.auth);
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -13,29 +22,26 @@ export default function Register() {
     password: "",
   });
 
-  const registerUser = async (e) => {
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/userprofile");
+    }
+  }, [userInfo, navigate]);
+
+  const handleRegister = async (e) => {
     e.preventDefault();
-    const { name, email, date, password } = data;
     try {
-      const { data } = await axios
-        .post("/register", {
-          name,
-          email,
-          date,
-          password,
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      if (data.error) {
-        toast.error(data.error);
-      } else {
-        setData({});
-        toast.success("Registration Successful. Welcome!");
-        navigate("/login");
-      }
-    } catch (error) {
-      console.log(error);
+      const res = await registeruser({
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        date: data.date,
+      }).unwrap();
+      dispatch(setCredentials(res));
+      toast.success("Registered successfully. Welcome!");
+      navigate("/userprofile");
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
     }
   };
 
@@ -47,7 +53,7 @@ export default function Register() {
           <div className="ttle">Sign Up</div>
           <div className="underline"></div>
         </div>
-        <form onSubmit={registerUser} className="loginform">
+        <form onSubmit={handleRegister} className="loginform">
           <input
             type="text"
             placeholder="Enter username"

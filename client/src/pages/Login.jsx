@@ -1,33 +1,43 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { toast } from "react-hot-toast";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-hot-toast";
+
+import { useLoginMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
 import Navbar from "../components/Navbar/Navbar";
 import "./Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [login] = useLoginMutation();
+  const { userInfo } = useSelector((state) => state.auth);
+
   const [data, setData] = useState({
     email: "",
     password: "",
   });
 
-  const loginUser = async (e) => {
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/userprofile");
+    }
+  }, [userInfo, navigate]);
+
+  const submitHandler = async (e) => {
     e.preventDefault();
-    const { email, password } = data;
     try {
-      const { data } = await axios.post("/login", {
-        email,
-        password,
-      });
-      if (data.error) {
-        toast.error(data.error);
-      } else {
-        setData({});
-        navigate("/userprofile");
-      }
-    } catch (error) {
-      console.log(error);
+      const res = await login({
+        email: data.email,
+        password: data.password,
+      }).unwrap();
+      dispatch(setCredentials(res));
+      toast.success("Loged in successfully. Welcome!");
+      navigate("/userprofile");
+    } catch (err) {
+      console.error("Login error:", err);
+      toast.error("Invalid email or password");
     }
   };
 
@@ -39,7 +49,7 @@ const Login = () => {
           <div className="ttle">Log In</div>
           <div className="underline"></div>
         </div>
-        <form onSubmit={loginUser} className="loginform">
+        <form onSubmit={submitHandler} className="loginform">
           <input
             type="email"
             placeholder="Enter email"

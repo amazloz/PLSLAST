@@ -3,7 +3,11 @@ import Interests from "./Interests";
 import { useGetInterestsQuery } from "../../slices/interestsApiSlice";
 
 const InterestPopup = ({ closeinterestpopup }) => {
-  const { data: interests, isLoading, error } = useGetInterestsQuery();
+  const { data: interests } = useGetInterestsQuery();
+
+  if (!interests) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="popupbg">
@@ -15,17 +19,9 @@ const InterestPopup = ({ closeinterestpopup }) => {
           <h1>Choose your hobby</h1>
         </div>
         <div className="popupbody">
-          {isLoading ? (
-            <h2>Loading...</h2>
-          ) : error ? (
-            <div> {error?.data?.message || error.error} </div>
-          ) : (
-            <>
-              {interests.map((interest) => (
-                <Interests interestslist={interest} />
-              ))}
-            </>
-          )}
+          {interests.map((interest) => (
+            <Interests key={interest.id} interestslist={interest} />
+          ))}
         </div>
         <div className="popupfooter">
           <button

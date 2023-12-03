@@ -5,8 +5,8 @@ export const interestsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getInterests: builder.query({
       query: () => ({ url: INTERESTS_URL }),
+      keepUnusedDataFor: 5,
     }),
-    keepUnusedDataFor: 5,
   }),
 });
 

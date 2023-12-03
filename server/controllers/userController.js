@@ -2,21 +2,23 @@ import asyncHandler from "../middleware/asyncHandler.js";
 import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
 
-import jwt from "jsonwebtoken";
-import mongoose from "mongoose";
+const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({});
+  res.json(users);
+});
 
 // @desc Auth user & get toekn
 // @route GET /api/users/login
 // @access public
 const authUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const { email, password } = req.body;
 
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
     generateToken(res, user._id);
 
-    res.json({
+    res.status(200).json({
       name: user.name,
       email: user.email,
     });
@@ -30,7 +32,7 @@ const authUser = asyncHandler(async (req, res) => {
 // @route POST /api/users
 // @access Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, birthdate, gender, password } = req.body;
 
   const userExists = await User.findOne({ email });
 
@@ -42,6 +44,8 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     name,
     email,
+    birthdate,
+    gender,
     password,
   });
 
@@ -71,14 +75,47 @@ const logoutUser = asyncHandler(async (req, res) => {
 // @route GET /api/users/userprofile
 // @access Private
 const getUserProfile = asyncHandler(async (req, res) => {
-  res.send("get user profile");
+  const user = await User.findById(req.user._id);
+  if (user) {
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      birthdate: user.birthdate,
+      gender: user.gender,
+      nativelanguage: user.nativelanguage,
+      learninglanguage: user.learninglanguage,
+      interest: user.interest,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
 });
 
 // @desc Update user profile
 // @route PUT /api/users/userprofile
 // @access Private
 const updateUserProfile = asyncHandler(async (req, res) => {
-  res.send("update user profile");
+  const user = await User.findById(req.user._id);
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+
+    const updatedUser = await user.save();
+    res.status(200).json({
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
 });
 
 export {
@@ -87,4 +124,5 @@ export {
   logoutUser,
   getUserProfile,
   updateUserProfile,
+  getUsers,
 };

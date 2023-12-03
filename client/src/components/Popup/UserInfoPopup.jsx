@@ -10,10 +10,7 @@ const UserInfoPopup = ({ closeuserinfopopup }) => {
         <div className="popupheader">
           <h1>Edit your personal infos</h1>
         </div>
-        <div className="popupbody">
-          <p>Name:</p>
-          <p>Email:</p>
-        </div>
+        <div className="popupbody"></div>
         <div className="popupfooter">
           <button
             className="save-btn"

@@ -1,37 +1,50 @@
 import "./UserProfile.css";
 import AfterNavbar from "../components/Navbar/AfterNavbar";
-import profilepic from "../media/profilepic.png";
+import boy from "../media/boy.png";
+import girl from "../media/girl.png";
 import NativeLanguagePopup from "../components/Popup/NativeLanguagePopup";
 import UserInfoPopup from "../components/Popup/UserInfoPopup";
 import LearningLanguagePopup from "../components/Popup/LearningLanguagePopup";
 import InterestPopup from "../components/Popup/InterestPopup";
-import { useState, useEffect } from "react";
-import axios from "axios";
+
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useGetProfileDataQuery } from "../slices/usersApiSlice";
+import { setProfiles } from "../slices/profileSlice";
 
 const UserProfile = () => {
+  const dispatch = useDispatch();
+
   const [openUserinfoPopup, setOpenUserinfoPopup] = useState(false);
   const [openNativeLanguagePopup, setOpenNativeLanguagePopup] = useState(false);
   const [openLearningLanguagePopup, setOpenLearningLanguagePopup] =
     useState(false);
   const [openInterestPopup, setOpenInterestPopup] = useState(false);
 
-  const [interest, setInterest] = useState({});
-
+  const { data: infos } = useGetProfileDataQuery();
   useEffect(() => {
-    const fetchInterest = async () => {
-      const { data } = await axios.get("/api/interests");
-      setInterest(data);
-    };
-    fetchInterest();
-  }, []);
+    dispatch(setProfiles(infos));
+  }, [infos, dispatch]);
+  const { profileInfo } = useSelector((state) => state.auth);
+  if (!infos) {
+    return <div>Loading...</div>; // or any other loading indicator
+  }
+  const {
+    name,
+    email,
+    birthdate,
+    gender,
+    nativelanguage,
+    learninglanguage,
+    interest,
+  } = infos;
 
   return (
     <div>
       <AfterNavbar />
       <div className="profile-container">
         <div className="avatar">
-          <img src={profilepic} alt="avatar" />
-          <button className="change">Change profile picture</button>
+          <img src={gender === "male" ? boy : girl} alt="avatar" />
         </div>
         <div className="info-container">
           <div className="userinfo">
@@ -45,9 +58,10 @@ const UserProfile = () => {
             {openUserinfoPopup && (
               <UserInfoPopup closeuserinfopopup={setOpenUserinfoPopup} />
             )}
-            <p>Username: test</p>
-            <p>Email address: test@gmail.com</p>
-            <p>Birth date: mm/dd/yyyy </p>
+            <p>Username: {name}</p>
+            <p>Email address: {email}</p>
+            <p>Birth date: {birthdate}</p>
+            <p>Gender: {gender}</p>
           </div>
           <div className="languageinfo">
             <button
@@ -62,7 +76,7 @@ const UserProfile = () => {
                 closenativelanguagepopup={setOpenNativeLanguagePopup}
               />
             )}
-            <p>Mongolia(5)</p>
+            <p>{nativelanguage}</p>
           </div>
           <div className="languageinfo">
             <button
@@ -77,7 +91,7 @@ const UserProfile = () => {
                 closelearninglanguagepopup={setOpenLearningLanguagePopup}
               />
             )}
-            <p>English(3)</p>
+            <p>{learninglanguage}</p>
           </div>
           <div className="languageinfo">
             <button
@@ -90,7 +104,7 @@ const UserProfile = () => {
             {openInterestPopup && (
               <InterestPopup closeinterestpopup={setOpenInterestPopup} />
             )}
-            <p>Coffee</p>
+            <p>{interest}</p>
           </div>
         </div>
       </div>

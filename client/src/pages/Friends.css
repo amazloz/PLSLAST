@@ -1,0 +1,55 @@
+.friendstitle {
+  display: flex;
+  justify-content: center;
+  color: #edf1d6;
+  padding: 30px;
+}
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #9dc08b;
+  margin: auto;
+  margin-top: 30px;
+  width: 900px;
+  border-radius: 64px;
+  padding: 32px;
+}
+.headers {
+  display: flex;
+  justify-content: space-between;
+  color: #edf1d6;
+  width: 90%;
+  padding: 12px;
+  margin: 0 15px;
+}
+.lists {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  padding: 12px;
+  background-color: #edf1d6;
+  border-radius: 24px;
+  padding: 15px;
+  margin: 15px;
+}
+.usernames {
+  font-size: 20px;
+  padding: 7px;
+  color: #40513b;
+}
+
+.delete {
+  color: #edf1d6;
+  border-radius: 50%;
+  background-color: #9dc08b;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 3px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 8px;
+}

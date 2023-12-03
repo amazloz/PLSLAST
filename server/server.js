@@ -1,6 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import fs from "fs";
+import https from "https";
+import { Server } from "socket.io";
 
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import connectDB from "./config/db.js";
@@ -14,6 +17,10 @@ connectDB();
 const port = process.env.PORT || 5000;
 
 const app = express();
+const key = fs.readFileSync("./certs/cert.key");
+const cert = fs.readFileSync("./certs/cert.crt");
+
+const expressServer = https.createServer({ key, cert }, app);
 
 // Body parser middleware
 app.use(express.json());
