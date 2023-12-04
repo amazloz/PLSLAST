@@ -25,19 +25,18 @@ const UserProfile = () => {
   useEffect(() => {
     dispatch(setProfiles(infos));
   }, [infos, dispatch]);
-  const { profileInfo } = useSelector((state) => state.auth);
+  const { profileInfo } = useSelector((state) => state.profile);
   if (!infos) {
     return <div>Loading...</div>; // or any other loading indicator
   }
-  const {
-    name,
-    email,
-    birthdate,
-    gender,
-    nativelanguage,
-    learninglanguage,
-    interest,
-  } = infos;
+
+  const name = profileInfo?.name || "not found";
+  const email = profileInfo?.email || "not found";
+  const birthdate = profileInfo?.birthdate || "not found";
+  const gender = profileInfo?.gender || "not found";
+  const nativelanguage = profileInfo?.nativelanguage || "Choose language";
+  const learninglanguage = profileInfo?.learninglanguage || "Choose language";
+  const interest = profileInfo?.interest || "Choose interest";
 
   return (
     <div>

@@ -21,6 +21,9 @@ const key = fs.readFileSync("./certs/cert.key");
 const cert = fs.readFileSync("./certs/cert.crt");
 
 const expressServer = https.createServer({ key, cert }, app);
+const io = new Server(expressServer, {
+  cors: ["https:///localhost:3000"],
+});
 
 // Body parser middleware
 app.use(express.json());
@@ -40,5 +43,5 @@ app.use(notFound);
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on https://localhost:${port}`);
 });

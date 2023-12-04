@@ -56,6 +56,7 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      birthdate: user.birthdate,
     });
   } else {
     res.status(400);
@@ -81,11 +82,6 @@ const getUserProfile = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
-      birthdate: user.birthdate,
-      gender: user.gender,
-      nativelanguage: user.nativelanguage,
-      learninglanguage: user.learninglanguage,
-      interest: user.interest,
     });
   } else {
     res.status(404);
@@ -106,11 +102,18 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       user.password = req.body.password;
     }
 
-    const updatedUser = await user.save();
+    const updatedUser = await User.findByIdAndUpdate(req.user._id, user, {
+      new: true,
+    });
     res.status(200).json({
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
+      birthdate: user.birthdate,
+      gender: user.gender,
+      nativelanguage: user.nativelanguage,
+      learninglanguage: user.learninglanguage,
+      interest: user.interest,
     });
   } else {
     res.status(404);

@@ -1,10 +1,14 @@
 import React from "react";
 import "./Choose.css";
 
-const Interests = ({ interestslist }) => {
+const Interests = ({ interestslist, isSelected, onClick }) => {
   return (
     <div className="btn-container">
-      <button className="choose-btn"> {interestslist.interest_name} </button>
+      <button
+        className={`choose-btn ${isSelected ? "selected" : ""}`}
+        onClick={() => onClick(interestslist.interest_name)}>
+        {interestslist.interest_name}
+      </button>
     </div>
   );
 };

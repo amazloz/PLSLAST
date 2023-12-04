@@ -10,7 +10,7 @@
 }
 .popupcontainer {
   position: relative;
-  padding: 32px;
+  padding: 30px 30px 0px 30px;
   margin-bottom: 40px;
   height: 500px;
   width: 1000px;
@@ -21,6 +21,8 @@
 }
 .popupheader {
   color: #40513b;
+  display: flex;
+  justify-content: space-between;
 }
 .popupbody {
   color: #40513b;
@@ -28,6 +30,23 @@
   display: flex;
   flex-flow: row wrap;
   gap: 10px 10px;
+}
+.popupfooter {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.close-btn {
+  border-radius: 50%;
+  background-color: #9dc08b;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  height: 30px;
+  width: 30px;
+  font-weight: 500;
 }
 
 .save-btn {

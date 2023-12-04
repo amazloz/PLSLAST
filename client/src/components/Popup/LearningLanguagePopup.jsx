@@ -2,8 +2,26 @@ import "./ProfilePopup.css";
 import Interests from "./Interests";
 import { useGetInterestsQuery } from "../../slices/interestsApiSlice";
 
+import { useState } from "react";
+
 const LearningLanguagePopup = ({ closelearninglanguagepopup }) => {
-  const { data: interests, isLoading, error } = useGetInterestsQuery();
+  const { data: interests } = useGetInterestsQuery();
+
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
+
+  if (!interests) {
+    return <div>Loading...</div>;
+  }
+  const handleLanguageClick = (language) => {
+    setSelectedLanguage(language);
+  };
+
+  const handleSaveClick = () => {
+    // Use the selectedInterest state as needed (e.g., save it to your backend)
+    console.log("Selected Language:", selectedLanguage);
+    // Close the popup
+    closelearninglanguagepopup(false);
+  };
 
   return (
     <div className="popupbg">
@@ -17,17 +35,14 @@ const LearningLanguagePopup = ({ closelearninglanguagepopup }) => {
           <h1>Choose your learning language</h1>
         </div>
         <div className="popupbody">
-          {isLoading ? (
-            <h2>Loading...</h2>
-          ) : error ? (
-            <div> {error?.data?.message || error.error} </div>
-          ) : (
-            <>
-              {interests.map((interest) => (
-                <Interests interestslist={interest} />
-              ))}
-            </>
-          )}
+          {interests.map((interest) => (
+            <Interests
+              key={interest._id}
+              interestslist={interest}
+              isSelected={selectedLanguage === interest.interest_name}
+              onClick={handleLanguageClick}
+            />
+          ))}
         </div>
         <div className="popupfooter">
           <button

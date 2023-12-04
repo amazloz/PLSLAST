@@ -9,12 +9,7 @@
   cursor: pointer;
 }
 
-.choose-btn :focus {
-  background-color: #40513b;
-  color: #edf1d6;
-}
-
-.choose-btn :active {
+.choose-btn.selected {
   background-color: #40513b;
   color: #edf1d6;
 }

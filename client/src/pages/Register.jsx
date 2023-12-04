@@ -18,8 +18,9 @@ export default function Register() {
   const [data, setData] = useState({
     name: "",
     email: "",
-    date: "",
+    brithdate: "",
     password: "",
+    gender: "",
   });
 
   useEffect(() => {
@@ -35,7 +36,8 @@ export default function Register() {
         name: data.name,
         email: data.email,
         password: data.password,
-        date: data.date,
+        brithdate: data.date,
+        gender: data.gender,
       }).unwrap();
       dispatch(setCredentials(res));
       toast.success("Registered successfully. Welcome!");
@@ -68,15 +70,20 @@ export default function Register() {
           />
           <input
             type="date"
-            placeholder="mm/dd/yyyy"
-            value={data.date}
-            onChange={(e) => setData({ ...data, date: e.target.value })}
+            value={data.brithdate}
+            onChange={(e) => setData({ ...data, brithdate: e.target.value })}
           />
           <input
             type="password"
             placeholder="Enter password"
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Gender"
+            value={data.gender}
+            onChange={(e) => setData({ ...data, gender: e.target.value })}
           />
           <button type="submit" className="buttn">
             Sign Up

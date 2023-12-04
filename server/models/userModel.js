@@ -16,10 +16,11 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   birthdate: {
-    type: String,
+    type: Date,
   },
   gender: {
     type: String,
+    required: true,
   },
   nativelanguage: {
     type: String,
