@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useRegisterMutation } from "../slices/usersApiSlice";
-import { setCredentials } from "../slices/authSlice";
 import Navbar from "../components/Navbar/Navbar";
+import { setProfiles } from "../slices/profileSlice";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -18,9 +18,12 @@ export default function Register() {
   const [data, setData] = useState({
     name: "",
     email: "",
-    brithdate: "",
+    birthdate: "",
     password: "",
     gender: "",
+    nativelanguage: "",
+    learninglanguage: "",
+    interest: "",
   });
 
   useEffect(() => {
@@ -32,14 +35,18 @@ export default function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+      const formattedDate = new Date(data.birthdate);
       const res = await registeruser({
         name: data.name,
         email: data.email,
         password: data.password,
-        brithdate: data.date,
+        birthdate: formattedDate,
         gender: data.gender,
+        nativelanguage: "Choose language",
+        learninglanguage: "Choose language",
+        interest: "Choose interest",
       }).unwrap();
-      dispatch(setCredentials(res));
+      dispatch(setProfiles(res));
       toast.success("Registered successfully. Welcome!");
       navigate("/userprofile");
     } catch (err) {
@@ -70,8 +77,8 @@ export default function Register() {
           />
           <input
             type="date"
-            value={data.brithdate}
-            onChange={(e) => setData({ ...data, brithdate: e.target.value })}
+            value={data.birthdate}
+            onChange={(e) => setData({ ...data, birthdate: e.target.value })}
           />
           <input
             type="password"

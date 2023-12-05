@@ -52,9 +52,6 @@ const UserInfoPopup = ({ closeuserinfopopup }) => {
   };
 
   const handleSaveClick = async () => {
-    console.log("User name:", sname);
-    console.log("User email:", semail);
-    console.log("User gender:", sgender);
     try {
       const res = await updateuser({
         id: profileInfo._id,
@@ -107,7 +104,7 @@ const UserInfoPopup = ({ closeuserinfopopup }) => {
             />
             <input
               type="text"
-              placeholder="Gender"
+              placeholder="male or female"
               name="gender"
               value={sgender}
               onChange={handleChange}

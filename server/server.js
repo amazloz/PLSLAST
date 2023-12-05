@@ -8,6 +8,7 @@ import { Server } from "socket.io";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import connectDB from "./config/db.js";
 import interestRoutes from "./routes/interestRoutes.js";
+import languageRoutes from "./routes/languageRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
@@ -37,6 +38,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/interests", interestRoutes);
+app.use("/api/languages", languageRoutes);
 app.use("/api/users", userRoutes);
 
 app.use(notFound);

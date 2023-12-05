@@ -1,25 +1,46 @@
 import "./ProfilePopup.css";
-import Interests from "./Interests";
-import { useGetInterestsQuery } from "../../slices/interestsApiSlice";
+import Languages from "./Languages";
+import { useGetLanguagesQuery } from "../../slices/languagesApiSlice";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import { useUpdateUserMutation } from "../../slices/usersApiSlice";
+import { setProfiles } from "../../slices/profileSlice";
 
 const NativeLanguagePopup = ({ closenativelanguagepopup }) => {
-  const { data: interests } = useGetInterestsQuery();
+  const dispatch = useDispatch();
+  const [updateuser] = useUpdateUserMutation();
+  const { data: languages } = useGetLanguagesQuery();
+  const { profileInfo } = useSelector((state) => state.profile);
 
   const [selectedLanguage, setSelectedLanguage] = useState(null);
 
-  if (!interests) {
+  useEffect(() => {
+    if (profileInfo) {
+      setSelectedLanguage(profileInfo?.language);
+    }
+  }, [profileInfo, profileInfo.language]);
+
+  if (!languages) {
     return <div>Loading...</div>;
   }
-  const handleLanguageClick = (language) => {
-    setSelectedLanguage(language);
+  const handleLanguageClick = (languageName) => {
+    setSelectedLanguage(languageName);
   };
 
-  const handleSaveClick = () => {
-    // Use the selectedInterest state as needed (e.g., save it to your backend)
-    console.log("Selected Language:", selectedLanguage);
-    // Close the popup
+  const handleSaveClick = async () => {
+    try {
+      const res = await updateuser({
+        id: profileInfo._id,
+        nativelanguage: selectedLanguage,
+      }).unwrap();
+      dispatch(setProfiles(res));
+      console.log(selectedLanguage);
+      toast.success("Language updated successfully");
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
     closenativelanguagepopup(false);
   };
 
@@ -35,11 +56,11 @@ const NativeLanguagePopup = ({ closenativelanguagepopup }) => {
           <h1>Choose your native language</h1>
         </div>
         <div className="popupbody">
-          {interests.map((interest) => (
-            <Interests
-              key={interest._id}
-              interestslist={interest}
-              isSelected={selectedLanguage === interest.interest_name}
+          {languages.map((language) => (
+            <Languages
+              key={language._id}
+              languageslist={language}
+              isSelected={selectedLanguage === language.language_name}
               onClick={handleLanguageClick}
             />
           ))}

@@ -34,9 +34,9 @@ const UserProfile = () => {
   const email = profileInfo?.email || "not found";
   const birthdate = profileInfo?.birthdate || "not found";
   const gender = profileInfo?.gender || "not found";
-  const nativelanguage = profileInfo?.nativelanguage || "Choose language";
-  const learninglanguage = profileInfo?.learninglanguage || "Choose language";
-  const interest = profileInfo?.interest || "Choose interest";
+  const nativelanguage = profileInfo?.nativelanguage || "not found";
+  const learninglanguage = profileInfo?.learninglanguage || "not found";
+  const interest = profileInfo?.interest || "not found";
 
   return (
     <div>
