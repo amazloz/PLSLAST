@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AfterNavbar from "../components/Navbar/AfterNavbar";
 import "./Match.css";
+import { useSelector } from "react-redux";
 
 const Match = () => {
+  const { profileInfo } = useSelector((state) => state.profile);
+  const nativelanguage = profileInfo?.nativelanguage || "not found";
+  const learninglanguage = profileInfo?.learninglanguage || "not found";
+  const interest = profileInfo?.interest || "not found";
   return (
     <div>
       <AfterNavbar />
@@ -16,13 +21,13 @@ const Match = () => {
         <div className="longunderline"></div>
         <div className="infocontainer">
           <div className="languageinfos">
-            <p>Navtive Language: Mongolian(5)</p>
+            <p>Navtive Language: {nativelanguage}</p>
           </div>
           <div className="languageinfos">
-            <p>Learning Language: English(3)</p>
+            <p>Learning Language: {learninglanguage}</p>
           </div>
           <div className="languageinfos">
-            <p>Interest: Coffee</p>
+            <p>Interest: {interest}</p>
           </div>
           <Link to="/room" className="mbtn">
             Start Matching ^^

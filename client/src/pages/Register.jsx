@@ -88,7 +88,7 @@ export default function Register() {
           />
           <input
             type="text"
-            placeholder="Gender"
+            placeholder="male or female"
             value={data.gender}
             onChange={(e) => setData({ ...data, gender: e.target.value })}
           />

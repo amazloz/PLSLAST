@@ -1,3 +1,19 @@
-.afternav {
-  margin-right: 680px;
+.navcon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 10px 50px 0 50px;
+}
+
+.navcon .btn2 {
+  text-decoration: none;
+  background-color: #40513b;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 24px;
+  padding: 10px 15px 10px 15px;
+  margin: 20px;
+  cursor: pointer;
 }

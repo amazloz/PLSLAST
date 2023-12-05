@@ -23,11 +23,11 @@ const AfterNavbar = () => {
   };
 
   return (
-    <nav>
+    <div className="navcon">
       <Link to="/" className="logo">
         Call App
       </Link>
-      <div className="afternav">
+      <div>
         <Link to="/match" className="butn">
           Match
         </Link>
@@ -38,10 +38,10 @@ const AfterNavbar = () => {
           Friends
         </Link>
       </div>
-      <Link className="btn" onClick={logoutHandler}>
+      <Link className="btn2" onClick={logoutHandler}>
         Log out
       </Link>
-    </nav>
+    </div>
   );
 };
 
