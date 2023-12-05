@@ -25,7 +25,7 @@ const AfterNavbar = () => {
   return (
     <div className="navcon">
       <Link to="/" className="logo">
-        Call App
+        Talkis
       </Link>
       <div>
         <Link to="/match" className="butn">

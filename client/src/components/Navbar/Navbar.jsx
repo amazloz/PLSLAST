@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav>
       <Link to="/" className="logo">
-        Call App
+        Talkis
       </Link>
       <div>
         <Link to="/register" className="butn">

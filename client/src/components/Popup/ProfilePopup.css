@@ -35,6 +35,9 @@
   margin: 10px 0px;
   display: flex;
   justify-content: center;
+  bottom: 0;
+  position: sticky;
+  background-color: #609966;
 }
 
 .close-btn {

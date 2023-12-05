@@ -23,7 +23,7 @@ const BeforeNavbar = () => {
         smooth={true}
         duration={500}
         className="title">
-        Call App
+        Talkis
       </a>
       <ul>
         <Link

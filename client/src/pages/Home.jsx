@@ -26,7 +26,7 @@ const Home = () => {
         <div className="one">
           <div className="containerbox">
             <div className="title">
-              <h1>Speak freely with Call App</h1>
+              <h1>Speak freely with Talkis</h1>
               <p>Master your language by talking with real people</p>
               <Link to="/login" className="btn">
                 TRY IT FREE
@@ -40,7 +40,7 @@ const Home = () => {
 
         <div className="two" id="about">
           <div className="abouttitle">
-            <h1> What is Call App</h1>
+            <h1> What is Talkis?</h1>
             <p>
               The Language Learning app where you create real communication with
               others by talking about your interest and hobbies
@@ -90,7 +90,7 @@ const Home = () => {
           </div>
           <div className="footer">
             <div className="footertitles">
-              <p>{currentYear} Call App.</p>
+              <p>{currentYear} Talkis.</p>
               <p>
                 Illustrations from{" "}
                 <a href="https://icons8.com/illustrations">Ouch!</a>
