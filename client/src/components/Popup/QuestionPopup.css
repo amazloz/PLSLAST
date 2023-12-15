@@ -1,0 +1,48 @@
+.popup-container {
+  position: relative;
+  padding: 30px 30px 0px 30px;
+  margin-bottom: 40px;
+  height: 280px;
+  width: 1000px;
+  max-width: 640px;
+  background-color: #9dc08b;
+  border-radius: 24px;
+  overflow-y: auto;
+}
+.popup-header {
+  color: #609966;
+  display: flex;
+  justify-content: space-between;
+}
+.popup-footer {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  position: sticky;
+  background-color: #9dc08b;
+}
+
+.questions {
+  display: flex;
+  justify-content: space-between;
+  background-color: #edf1d6;
+  margin: 20px;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.q {
+  padding: 9px;
+}
+
+.qbtn {
+  border-radius: 10px;
+}
+
+.save-btn.active {
+  /* Styles for the active state */
+  background-color: #4caf50; /* Green background color */
+  color: #fff; /* White text color */
+  border-color: #4caf50; /* Green border color */
+}

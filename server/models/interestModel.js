@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const interestSchema = new mongoose.Schema({
   interest_id: {
@@ -12,4 +12,4 @@ const interestSchema = new mongoose.Schema({
 });
 const Interest = mongoose.model("Interest", interestSchema);
 
-export default Interest;
+module.exports = Interest;

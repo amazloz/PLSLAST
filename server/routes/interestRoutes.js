@@ -1,7 +1,7 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
-import { getInterests } from "../controllers/interestController.js";
+const { getInterests } = require("../controllers/interestController.js");
 
 router.route("/").get(getInterests);
 
-export default router;
+module.exports = router;

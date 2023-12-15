@@ -1,105 +1,48 @@
-import React, { useEffect, useRef, useState } from "react";
+// Room.jsx
+
+import React, { useEffect, useRef } from "react";
 import "./Room.css";
-//import ActionButtons from "../components/videoComponents/ActionButtons";
-//import addStream from "../redux-elements/actions/addStream";
+import boy from "../media/boy.png";
+import girl from "../media/girl.png";
+import ActionButtons from "../components/videoComponents/ActionButtons";
 import { useDispatch, useSelector } from "react-redux";
-//import createPeerConnection from "../webRTCutilities/createPeerConnection";
-//import socketConnection from "../webRTCutilities/socketConnection";
-//import updateCallStatus from "../redux-elements/actions/updateCallStatus";
-//import { useSearchParams } from "react-router-dom";
-//import axios from "axios";
+import { setcallInfo } from "../slices/callSlice";
 
 const Room = () => {
   const dispatch = useDispatch();
-  /* const callStatus = useSelector((state) => state.callStatus);
-  const streams = useSelector((state) => state.streams);
-  const [callInfos, setCallInfos] = useState({});
+  const callInfo = useSelector((state) => state.call.callInfo);
+  const { profileInfo } = useSelector((state) => state.profile);
   const myFeedEl = useRef(null);
-  const otherFeedEl = useRef(null);
 
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  useEffect(() => {
-    const token = searchParams.get("token");
-    const fetchDecodedToken = async () => {
-      try {
-        const resp = await axios.post("https://localhost:9000/validate-link", {
-          token,
-        });
-        console.log(resp.data); // Assuming the decoded data is in resp.data
-      } catch (error) {
-        console.error("Error fetching or decoding token:", error);
-      }
-    };
-
-    fetchDecodedToken();
-  }, []);
+  const gender = profileInfo.gender;
 
   useEffect(() => {
     const fetchMedia = async () => {
       const constraints = {
-        video: true,
-        audio: true,
+        audio: "true",
       };
+
       try {
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
-        dispatch(updateCallStatus("haveMedia", true));
-        dispatch(addStream("localStream", stream));
-        const { peerConnection, remoteStream } = await createPeerConnection();
-        dispatch(addStream("remoteStream", remoteStream, peerConnection));
+        myFeedEl.current.srcObject = stream;
       } catch (err) {
         console.log(err);
       }
     };
     fetchMedia();
-  }, []);
+  }, [callInfo.audio, dispatch]);
 
-  useEffect(() => {
-    const createOfferAsync = async () => {
-      for (const s in streams) {
-        if (s !== "localStream") {
-          try {
-            const pc = streams[s].peerConnection;
-            const offer = await pc.createOffer();
-            const token = searchParams.get("token");
-            const socket = socketConnection(token);
-            socket.emit("newOffer", { offer, callInfos });
-          } catch (err) {
-            console.log(err);
-          }
-        }
-      }
-      dispatch(updateCallStatus("haveCreatedOffer", true));
-    };
-
-    if (
-      callStatus.audio === "enabled" &&
-      callStatus.video === "enabled" &&
-      !callStatus.haveCreatedOffer
-    ) {
-      createOfferAsync();
-    }
-  }, [callStatus.audio, callStatus.video, callStatus.haveCreatedOffer]);
-*/
   return (
     <div className="roombody">
-      <div className="roomcontrols"></div>
+      <div className="roomcontrols">
+        <ActionButtons feed={myFeedEl} />
+      </div>
       <div className="main">
-        <div className="you">
-          <video
-            id="remotevideo"
-            //ref={otherFeedEl}
-            autoPlay
-            controls
-            playsInline></video>
-        </div>
-        <div className="me">
-          <video
-            id="localvideo"
-            //ref={myFeedEl}
-            autoPlay
-            controls
-            playsInline></video>
+        <div className="video">
+          <img src={gender === "female" ? boy : girl} className="remotevideo" />
+          <img src={gender === "male" ? boy : girl} className="localvideo" />
+          {/*<video className="remotevideo" autoPlay playsInline></video>
+          <video className="localvideo" ref={myFeedEl} autoPlay playsInline></video> */}
         </div>
       </div>
     </div>

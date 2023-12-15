@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const languageSchema = new mongoose.Schema({
   language_code: {
@@ -12,4 +12,4 @@ const languageSchema = new mongoose.Schema({
 });
 const Language = mongoose.model("Language", languageSchema);
 
-export default Language;
+module.exports = Language;

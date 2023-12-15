@@ -1,5 +1,5 @@
-import asyncHandler from "../middleware/asyncHandler.js";
-import Language from "../models/languageModel.js";
+const asyncHandler = require("../middleware/asyncHandler.js");
+const Language = require("../models/languageModel.js");
 
 // @desc Fetch all interests
 // @route Get /api/interests
@@ -9,4 +9,4 @@ const getLanguages = asyncHandler(async (req, res) => {
   res.json(languages);
 });
 
-export { getLanguages };
+module.exports = { getLanguages };

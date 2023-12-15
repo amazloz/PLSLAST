@@ -1,15 +1,16 @@
-import express from "express";
-import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
-import fs from "fs";
-import https from "https";
-import { Server } from "socket.io";
+const express = require("express");
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+const fs = require("fs");
+const https = require("https");
+const socketio = require("socket.io");
+const cors = require("cors");
 
-import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
-import connectDB from "./config/db.js";
-import interestRoutes from "./routes/interestRoutes.js";
-import languageRoutes from "./routes/languageRoutes.js";
-import userRoutes from "./routes/userRoutes.js";
+const { notFound, errorHandler } = require("./middleware/errorMiddleware.js");
+const connectDB = require("./config/db.js");
+const interestRoutes = require("./routes/interestRoutes.js");
+const languageRoutes = require("./routes/languageRoutes.js");
+const userRoutes = require("./routes/userRoutes.js");
 
 dotenv.config();
 
@@ -20,11 +21,6 @@ const port = process.env.PORT || 5000;
 const app = express();
 const key = fs.readFileSync("./certs/cert.key");
 const cert = fs.readFileSync("./certs/cert.crt");
-
-const expressServer = https.createServer({ key, cert }, app);
-const io = new Server(expressServer, {
-  cors: ["https:///localhost:3000"],
-});
 
 // Body parser middleware
 app.use(express.json());
@@ -44,6 +40,16 @@ app.use("/api/users", userRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
+const expressServer = https.createServer({ key, cert }, app);
+const io = socketio(expressServer, {
+  cors: {
+    origin: "http://localhost:3000",
+    credentials: true,
+  },
+});
+
 app.listen(port, () => {
   console.log(`Server running on https://localhost:${port}`);
 });
+
+module.exports = { io, expressServer, app };

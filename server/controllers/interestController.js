@@ -1,5 +1,5 @@
-import asyncHandler from "../middleware/asyncHandler.js";
-import Interest from "../models/interestModel.js";
+const asyncHandler = require("../middleware/asyncHandler.js");
+const Interest = require("../models/interestModel.js");
 
 // @desc Fetch all interests
 // @route Get /api/interests
@@ -9,4 +9,4 @@ const getInterests = asyncHandler(async (req, res) => {
   res.json(interests);
 });
 
-export { getInterests };
+module.exports = { getInterests };

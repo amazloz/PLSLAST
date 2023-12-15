@@ -1,6 +1,6 @@
-import asyncHandler from "../middleware/asyncHandler.js";
-import User from "../models/userModel.js";
-import generateToken from "../utils/generateToken.js";
+const asyncHandler = require("../middleware/asyncHandler.js");
+const User = require("../models/userModel.js");
+const generateToken = require("../utils/generateToken.js");
 
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find({});
@@ -138,7 +138,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export {
+module.exports = {
   authUser,
   registerUser,
   logoutUser,
