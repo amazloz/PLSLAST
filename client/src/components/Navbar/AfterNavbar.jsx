@@ -27,15 +27,12 @@ const AfterNavbar = () => {
       <Link to="/" className="logo">
         Talkis
       </Link>
-      <div>
+      <div className="afretnav">
         <Link to="/match" className="butn">
-          Match
+          Ярих
         </Link>
         <Link to="/userprofile" className="butn">
-          Profile
-        </Link>
-        <Link to="/friendslist" className="butn">
-          Friends
+          Профайл
         </Link>
       </div>
       <Link className="btn2" onClick={logoutHandler}>

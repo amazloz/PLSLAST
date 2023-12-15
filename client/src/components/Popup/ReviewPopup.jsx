@@ -34,7 +34,7 @@ const ReviewPopup = ({ closereviewpopup }) => {
         <div className="popup-body">
           <div className="questions">
             <div className="q">
-              <p>Did this person use inappropriate words?</p>
+              <p>Энэ хүн зохисгүй үг хэллэг ашиглсан уу?</p>
             </div>
             <div className="qbtn">
               <button
@@ -42,20 +42,20 @@ const ReviewPopup = ({ closereviewpopup }) => {
                   selectedOptions.question1 === "No" ? "active" : ""
                 }`}
                 onClick={() => handleOptionClick("question1", "No")}>
-                No
+                Үгүй
               </button>
               <button
                 className={`save-btn ${
                   selectedOptions.question1 === "Yes" ? "active" : ""
                 }`}
                 onClick={() => handleOptionClick("question1", "Yes")}>
-                Yes
+                Тийм
               </button>
             </div>
           </div>
           <div className="questions">
             <div className="q">
-              <p>Did this person look like over 18?</p>
+              <p>Энэ хүн 18-аас дээш настай байсан уу?</p>
             </div>
             <div className="qbtn">
               <button
@@ -63,14 +63,14 @@ const ReviewPopup = ({ closereviewpopup }) => {
                   selectedOptions.question2 === "No" ? "active" : ""
                 }`}
                 onClick={() => handleOptionClick("question2", "No")}>
-                No
+                Үгүй
               </button>
               <button
                 className={`save-btn ${
                   selectedOptions.question2 === "Yes" ? "active" : ""
                 }`}
                 onClick={() => handleOptionClick("question2", "Yes")}>
-                Yes
+                Тийм
               </button>
             </div>
           </div>

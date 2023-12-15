@@ -46,24 +46,24 @@ const Login = () => {
       <Navbar />
       <div className="formcontainer">
         <div className="headertitle">
-          <div className="ttle">Log In</div>
+          <div className="ttle">Нэвтрэх</div>
           <div className="underline"></div>
         </div>
         <form onSubmit={submitHandler} className="loginform">
           <input
             type="email"
-            placeholder="Enter email"
+            placeholder="Имэйл оруулна уу..."
             value={data.email}
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
           <input
             type="password"
-            placeholder="Enter password"
+            placeholder="Нууц үг оруулна уу..."
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
           <button type="submit" className="buttn">
-            Log In
+            Нэвтрэх
           </button>
         </form>
       </div>

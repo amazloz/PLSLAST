@@ -59,19 +59,19 @@ export default function Register() {
       <Navbar />
       <div className="formcontainer">
         <div className="headertitle">
-          <div className="ttle">Sign Up</div>
+          <div className="ttle">Бүртгүүлэх</div>
           <div className="underline"></div>
         </div>
         <form onSubmit={handleRegister} className="loginform">
           <input
             type="text"
-            placeholder="Enter username"
+            placeholder="Хэрэглэгчийн нэр оруулна уу..."
             value={data.name}
             onChange={(e) => setData({ ...data, name: e.target.value })}
           />
           <input
             type="email"
-            placeholder="Enter email"
+            placeholder="Имэйл хаяг оруулна уу..."
             value={data.email}
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
@@ -82,18 +82,18 @@ export default function Register() {
           />
           <input
             type="password"
-            placeholder="Enter password"
+            placeholder="Нууц үг оруулна уу..."
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
           <input
             type="text"
-            placeholder="male or female"
+            placeholder="Хүйс оруулна уу..."
             value={data.gender}
             onChange={(e) => setData({ ...data, gender: e.target.value })}
           />
           <button type="submit" className="buttn">
-            Sign Up
+            Бүртгүүлэх
           </button>
         </form>
       </div>

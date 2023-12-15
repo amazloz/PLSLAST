@@ -35,23 +35,23 @@ const Match = () => {
         )}
 
         <div className="motiv-title">
-          <h1>Find your partner</h1>
-          <h1>Talk with them</h1>
-          <h1>Become friends</h1>
+          <h1>Хамтрагчаа олох</h1>
+          <h1>Яриа үүсгэх</h1>
+          <h1>Найзууд болох</h1>
         </div>
         <div className="longunderline"></div>
         <div className="infocontainer">
           <div className="languageinfos">
-            <p>Navtive Language: {nativelanguage}</p>
+            <p>Төрөлх хэл: {nativelanguage}</p>
           </div>
           <div className="languageinfos">
-            <p>Learning Language: {learninglanguage}</p>
+            <p>Сурч буй хэл: {learninglanguage}</p>
           </div>
           <div className="languageinfos">
-            <p>Interest: {interest}</p>
+            <p>Хобби: {interest}</p>
           </div>
           <Link to="/room" className="mbtn">
-            Start Matching ^^
+            Дуудлага эхлүүлэх
           </Link>
         </div>
       </div>

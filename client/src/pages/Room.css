@@ -64,5 +64,8 @@
   border-radius: 36px;
   z-index: 2;
 }
-video {
+.time {
+  margin-right: 30px;
+  font-weight: 600;
+  font-size: 24px;
 }

@@ -16,7 +16,7 @@ const HangUpButton = () => {
 
   return (
     <button onClick={hangupCall} className="endbtn">
-      Hang Up
+      Таслах
     </button>
   );
 };

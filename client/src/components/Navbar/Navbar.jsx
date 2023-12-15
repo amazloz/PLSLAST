@@ -9,10 +9,10 @@ const Navbar = () => {
       </Link>
       <div>
         <Link to="/register" className="butn">
-          Register
+          Бүртгүүлэх
         </Link>
         <Link to="/login" className="butn">
-          Log In
+          Нэвтрэх
         </Link>
       </div>
     </nav>

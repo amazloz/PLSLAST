@@ -52,15 +52,23 @@ const UserProfile = () => {
               onClick={() => {
                 setOpenUserinfoPopup(true);
               }}>
-              Edit user info
+              Хэрэглэгчийн мэдээлэл засах
             </button>
             {openUserinfoPopup && (
               <UserInfoPopup closeuserinfopopup={setOpenUserinfoPopup} />
             )}
-            <p>Username: {name}</p>
-            <p>Email address: {email}</p>
-            <p>Birth date: {birthdate}</p>
-            <p>Gender: {gender}</p>
+            <p>
+              Хэрэглэгчийн нэр: <b>{name}</b>{" "}
+            </p>
+            <p>
+              Имэйл хаяг: <b>{email}</b>{" "}
+            </p>
+            <p>
+              Төрсөн он: <b>{birthdate}</b>{" "}
+            </p>
+            <p>
+              Хүйс: <b>{gender}</b>
+            </p>
           </div>
           <div className="languageinfo">
             <button
@@ -68,14 +76,17 @@ const UserProfile = () => {
               onClick={() => {
                 setOpenNativeLanguagePopup(true);
               }}>
-              Edit Native language
+              Төрөлх хэл засах
             </button>
             {openNativeLanguagePopup && (
               <NativeLanguagePopup
                 closenativelanguagepopup={setOpenNativeLanguagePopup}
               />
             )}
-            <p>{nativelanguage}</p>
+            <p>
+              {" "}
+              <b>{nativelanguage}</b>{" "}
+            </p>
           </div>
           <div className="languageinfo">
             <button
@@ -83,14 +94,16 @@ const UserProfile = () => {
               onClick={() => {
                 setOpenLearningLanguagePopup(true);
               }}>
-              Edit Learning language
+              Сурч буй хэл засах
             </button>
             {openLearningLanguagePopup && (
               <LearningLanguagePopup
                 closelearninglanguagepopup={setOpenLearningLanguagePopup}
               />
             )}
-            <p>{learninglanguage}</p>
+            <p>
+              <b>{learninglanguage}</b>
+            </p>
           </div>
           <div className="languageinfo">
             <button
@@ -98,12 +111,14 @@ const UserProfile = () => {
               onClick={() => {
                 setOpenInterestPopup(true);
               }}>
-              Edit interest
+              Хобби засах
             </button>
             {openInterestPopup && (
               <InterestPopup closeinterestpopup={setOpenInterestPopup} />
             )}
-            <p>{interest}</p>
+            <p>
+              <b>{interest}</b>
+            </p>
           </div>
         </div>
       </div>

@@ -26,10 +26,10 @@ const Home = () => {
         <div className="one">
           <div className="containerbox">
             <div className="title">
-              <h1>Speak freely with Talkis</h1>
-              <p>Master your language by talking with real people</p>
+              <h1>Talkis-тай хамт чөлөөтэй ярь</h1>
+              <p>Хүмүүстэй ярилцан сурж буй хэлээ өөрийн болго</p>
               <Link to="/login" className="btn">
-                TRY IT FREE
+                Нэвтрэх
               </Link>
             </div>
             <div className="call">
@@ -40,12 +40,12 @@ const Home = () => {
 
         <div className="two" id="about">
           <div className="abouttitle">
-            <h1> What is Talkis?</h1>
+            <h1> Talkis гэж юу вэ?</h1>
             <p>
-              The Language Learning app where you create real communication with
-              others by talking about your interest and hobbies
+              Танихгүй хүнтэй холбоо тогтоон сурч буй гадаад хэлээ ашиглан
+              өөрийн сонирхол хоббиний талаар ярилцаж болох орчин.
             </p>
-            <p>Meet with strangers all around the world</p>
+            <p>Дэлхийн өнцөг булан бүрт байгаа хүмүүстэй танилцах</p>
           </div>
           <div className="aboutcontent">
             <div>
@@ -53,10 +53,10 @@ const Home = () => {
             </div>
             <div className="idkk">
               <ul>
-                <li>Connect with a community of language learners</li>
-                <li>Pick from 100+ languages</li>
-                <li>Make new friends</li>
-                <li>Audio & video call</li>
+                <li>Гадаад хэл сурах сонирхолтой хүмүүстэй нэгдэх</li>
+                <li>100+ хэлнээс сонголт хийх</li>
+                <li>Шинэ найзуудтай болох</li>
+                <li>Аудио & видео дуудлага</li>
               </ul>
             </div>
             <div>
@@ -68,16 +68,19 @@ const Home = () => {
           <div className="contact-container">
             <div className="contact-info">
               <p>
-                <h1>Contact me</h1>
+                <h1>Холбоо барих</h1>
               </p>
-              <p>Email: orgilod44@gmail.com</p>
-              <p>Phone: +976 95082727</p>
-              <p>I'm a very busy person. So don't even try to contact me!</p>
+              <p>Имэйл: orgilod44@gmail.com</p>
+              <p>Утас: +976 95082727</p>
+              <p>
+                Тест, тэст тэст тэст тэст тэст тэст тэст тэст тэст тэст тэст
+                тэст тэст тэст тэст тэст тэст тэст тэст тэст тэст тэст тэст!
+              </p>
             </div>
             <form className="contact-form">
               <div className="form-one">
-                <input type="text" id="name" placeholder="Name" />
-                <input type="email" id="email" placeholder="Email" />
+                <input type="text" id="name" placeholder="Нэр" />
+                <input type="email" id="email" placeholder="Имэйл" />
               </div>
               <textarea
                 name="message"
@@ -85,7 +88,7 @@ const Home = () => {
                 cols="90"
                 rows="10"
                 placeholder="Message"></textarea>
-              <button className="submit-form">Send</button>
+              <button className="submit-form">Илгээх</button>
             </form>
           </div>
           <div className="footer">

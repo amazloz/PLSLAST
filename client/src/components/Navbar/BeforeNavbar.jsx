@@ -33,7 +33,7 @@ const BeforeNavbar = () => {
           spy={true}
           smooth={true}
           duration={500}>
-          Home
+          Нүүр
         </Link>
         <Link
           href="about"
@@ -42,7 +42,7 @@ const BeforeNavbar = () => {
           spy={true}
           smooth={true}
           duration={600}>
-          About
+          Тухай
         </Link>
         <Link
           href="about"
@@ -51,10 +51,10 @@ const BeforeNavbar = () => {
           spy={true}
           smooth={true}
           duration={800}>
-          Contact
+          Холбоо барих
         </Link>
         <a href="/login">
-          <button className="loginbutton">Log In</button>
+          <button className="loginbutton">Нэвтрэх</button>
         </a>
       </ul>
     </nav>

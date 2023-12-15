@@ -34,7 +34,7 @@ const AddFriendPopup = ({ closefriendpopup }) => {
         <div className="popup-body">
           <div className="questions">
             <div className="q">
-              <p>Do you want to add this person as a friend?</p>
+              <p>Энэ хүнийг найз болгож нэммээр байна уу?</p>
             </div>
             <div className="qbtn">
               <button
@@ -42,14 +42,14 @@ const AddFriendPopup = ({ closefriendpopup }) => {
                   selectedOptions.question1 === "No" ? "active" : ""
                 }`}
                 onClick={() => handleOptionClick("question1", "No")}>
-                No
+                Үгүй
               </button>
               <button
                 className={`save-btn ${
                   selectedOptions.question1 === "Yes" ? "active" : ""
                 }`}
                 onClick={() => handleOptionClick("question1", "Yes")}>
-                Yes
+                Тийм
               </button>
             </div>
           </div>

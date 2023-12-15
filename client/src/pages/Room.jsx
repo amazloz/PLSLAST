@@ -7,6 +7,7 @@ import girl from "../media/girl.png";
 import ActionButtons from "../components/videoComponents/ActionButtons";
 import { useDispatch, useSelector } from "react-redux";
 import { setcallInfo } from "../slices/callSlice";
+import CountDown from "../components/videoComponents/CountDown";
 
 const Room = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,11 @@ const Room = () => {
     <div className="roombody">
       <div className="roomcontrols">
         <ActionButtons feed={myFeedEl} />
+        <div className="time">
+          <CountDown seconds={600} />
+        </div>
       </div>
+
       <div className="main">
         <div className="video">
           <img src={gender === "female" ? boy : girl} className="remotevideo" />
