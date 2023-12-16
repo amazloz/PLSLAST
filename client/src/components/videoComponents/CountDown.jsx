@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const formatTime = (time) => {
   let minutes = Math.floor(time / 60);
@@ -10,6 +11,7 @@ const formatTime = (time) => {
 };
 
 const CountDown = ({ seconds }) => {
+  const navigate = useNavigate();
   const [countDown, setCountDown] = useState(seconds);
   const timerId = useRef();
 
@@ -23,7 +25,7 @@ const CountDown = ({ seconds }) => {
   useEffect(() => {
     if (countDown <= 0) {
       clearInterval(timerId.current);
-      alert("End");
+      navigate("/match");
     }
   }, [countDown]);
 

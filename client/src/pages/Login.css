@@ -52,3 +52,12 @@ input {
   cursor: pointer;
   margin: 15px;
 }
+
+select {
+  border: 0;
+  border-radius: 10px;
+  font-size: 18px;
+  width: 340px;
+  margin: 20px;
+  padding: 10px;
+}

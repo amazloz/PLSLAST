@@ -86,12 +86,15 @@ export default function Register() {
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
-          <input
-            type="text"
-            placeholder="Хүйс оруулна уу..."
+          <select
             value={data.gender}
-            onChange={(e) => setData({ ...data, gender: e.target.value })}
-          />
+            onChange={(e) => setData({ ...data, gender: e.target.value })}>
+            <option value="" disabled>
+              Хүйс сонгоно уу...
+            </option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+          </select>
           <button type="submit" className="buttn">
             Бүртгүүлэх
           </button>

@@ -19,8 +19,8 @@ const ReviewPopup = ({ closereviewpopup }) => {
   };
 
   const handleSaveClick = () => {
+    dispatch(setcallInfo({ current: "idle" }));
     closereviewpopup(false);
-
     console.log("Save button clicked");
     console.log("Selected Options:", selectedOptions);
   };

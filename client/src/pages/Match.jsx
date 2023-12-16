@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AfterNavbar from "../components/Navbar/AfterNavbar";
 import "./Match.css";
 import { useSelector } from "react-redux";
 import ReviewPopup from "../components/Popup/ReviewPopup";
-import AddFriendPopup from "../components/Popup/AddFriendPopup";
 
 const Match = () => {
   const { profileInfo } = useSelector((state) => state.profile);
+  const navigate = useNavigate();
   const { callInfo } = useSelector((state) => state.call);
   const [openReviewPopup, setOpenReviewPopup] = useState(false);
   const [openFriendPopup, setOpenFriendPopup] = useState(false);
