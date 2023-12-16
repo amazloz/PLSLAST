@@ -54,6 +54,14 @@
 .remotevideo {
   height: 800px;
 }
+.remotevideos {
+  height: 1px;
+  width: 1px;
+}
+.localvideos {
+  height: 1px;
+  width: 1px;
+}
 
 .localvideo {
   height: 300px;

@@ -1,3 +1,17 @@
 import { io } from "socket.io-client";
 
-io.connect("https://localhost:5000");
+let socket;
+
+const socketConnection = (jwt) => {
+  if (socket && socket.connected) {
+    return socket;
+  } else {
+    const socket = io.connect("https://localhost:5000", {
+      auth: {
+        jwt,
+      },
+    });
+    return socket;
+  }
+};
+export default socketConnection;

@@ -27,9 +27,9 @@ const Match = () => {
     <div>
       <AfterNavbar />
       <div className="main-container">
-        {openFriendPopup && (
+        {/*{openFriendPopup && (
           <AddFriendPopup closefriendpopup={setOpenFriendPopup} />
-        )}
+        )}*/}
         {openReviewPopup && (
           <ReviewPopup closereviewpopup={setOpenReviewPopup} />
         )}
