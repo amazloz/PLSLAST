@@ -1,15 +1,15 @@
 .choose-btn {
   margin: 10px;
-  padding: 7px;
-  background-color: transparent;
-  background-color: #edf1d6;
-  color: #40513b;
+  padding: 10px;
+  font-size: 24px;
+  background-color: #5f6f52;
+  color: #fff;
   border: none;
   border-radius: 16px;
   cursor: pointer;
 }
 
 .choose-btn.selected {
-  background-color: #40513b;
-  color: #edf1d6;
+  background-color: #b99470;
+  color: #fff;
 }

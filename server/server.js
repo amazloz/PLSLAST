@@ -11,6 +11,7 @@ const connectDB = require("./config/db.js");
 const interestRoutes = require("./routes/interestRoutes.js");
 const languageRoutes = require("./routes/languageRoutes.js");
 const userRoutes = require("./routes/userRoutes.js");
+const noteRoutes = require("./routes/noteRoutes.js");
 
 dotenv.config();
 
@@ -36,6 +37,7 @@ app.get("/", (req, res) => {
 app.use("/api/interests", interestRoutes);
 app.use("/api/languages", languageRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/notes", noteRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

@@ -21,15 +21,15 @@ const Home = () => {
 
   return (
     <div id="home">
-      <BeforeNavbar />
       <div>
+        <BeforeNavbar />
         <div className="one">
           <div className="containerbox">
             <div className="title">
-              <h1>Talkis-тай хамт чөлөөтэй ярь</h1>
-              <p>Хүмүүстэй ярилцан сурж буй хэлээ өөрийн болго</p>
-              <Link to="/login" className="btn">
-                Нэвтрэх
+              <h1>Speak freely with Talkis</h1>
+              <p>Master the language by talking with people</p>
+              <Link to="/login" className="try">
+                TRY FOR FREE
               </Link>
             </div>
             <div className="call">
@@ -40,12 +40,11 @@ const Home = () => {
 
         <div className="two" id="about">
           <div className="abouttitle">
-            <h1> Talkis гэж юу вэ?</h1>
+            <h1> What is Talkis?</h1>
             <p>
-              Танихгүй хүнтэй холбоо тогтоон сурч буй гадаад хэлээ ашиглан
-              өөрийн сонирхол хоббиний талаар ярилцаж болох орчин.
+              The language learning app where you create real communication with
+              others by talking about your interests and hobbies
             </p>
-            <p>Дэлхийн өнцөг булан бүрт байгаа хүмүүстэй танилцах</p>
           </div>
           <div className="aboutcontent">
             <div>
@@ -53,10 +52,10 @@ const Home = () => {
             </div>
             <div className="idkk">
               <ul>
-                <li>Гадаад хэл сурах сонирхолтой хүмүүстэй нэгдэх</li>
-                <li>100+ хэлнээс сонголт хийх</li>
-                <li>Шинэ найзуудтай болох</li>
-                <li>Аудио & видео дуудлага</li>
+                <li>Connect with a community of language learners</li>
+                <li>Audio & video call</li>
+                <li>Make new friends</li>
+                <li>100+ languages</li>
               </ul>
             </div>
             <div>
@@ -64,23 +63,33 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="four" id="contact">
+        <div className="three" id="contact">
           <div className="contact-container">
             <div className="contact-info">
               <p>
-                <h1>Холбоо барих</h1>
+                <h1>Contact</h1>
               </p>
-              <p>Имэйл: orgilod44@gmail.com</p>
-              <p>Утас: +976 95082727</p>
+              <p>Email: orgilod44@gmail.com</p>
+              <p>Phone: +976 95082727</p>
               <p>
-                Тест, тэст тэст тэст тэст тэст тэст тэст тэст тэст тэст тэст
-                тэст тэст тэст тэст тэст тэст тэст тэст тэст тэст тэст тэст!
+                Test, test test test test test test test test test test test
+                test test test test test test test test test test test test!
               </p>
             </div>
             <form className="contact-form">
               <div className="form-one">
-                <input type="text" id="name" placeholder="Нэр" />
-                <input type="email" id="email" placeholder="Имэйл" />
+                <input
+                  className="homeinput"
+                  type="text"
+                  id="name"
+                  placeholder="Name"
+                />
+                <input
+                  className="homeinput"
+                  type="email"
+                  id="email"
+                  placeholder="Email address"
+                />
               </div>
               <textarea
                 name="message"
@@ -88,22 +97,10 @@ const Home = () => {
                 cols="90"
                 rows="10"
                 placeholder="Message"></textarea>
-              <button className="submit-form">Илгээх</button>
+              <button className="submit-form">Send</button>
             </form>
           </div>
-          <div className="footer">
-            <div className="footertitles">
-              <p>{currentYear} Talkis.</p>
-              <p>
-                Illustrations from{" "}
-                <a href="https://icons8.com/illustrations">Ouch!</a>
-              </p>
-            </div>
-            <div className="socials">
-              <p>Instagram</p>
-              <p>Facebook</p>
-            </div>
-          </div>
+          <div className="footer"></div>
         </div>
       </div>
     </div>

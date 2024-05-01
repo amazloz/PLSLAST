@@ -6,17 +6,13 @@
   top: 0;
   padding: 10px 50px 0 50px;
 }
-
-.navcon .btn2 {
+.navcon .title {
+  font-size: 35px;
+  margin: 1rem;
+  font-weight: bold;
   text-decoration: none;
-  background-color: #40513b;
-  color: white;
-  border-radius: 0.5rem;
-  font-size: 24px;
-  padding: 10px 15px 10px 15px;
-  margin: 20px;
-  cursor: pointer;
+  color: #5f6f52;
 }
 .afretnav {
-  margin-left: 20px;
+  margin-left: 30px;
 }

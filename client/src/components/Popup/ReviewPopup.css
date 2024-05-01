@@ -1,0 +1,74 @@
+.popup-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px 0px 30px;
+  margin-bottom: 40px;
+  height: 250px;
+  width: 1000px;
+  max-width: 640px;
+  background-color: #5f6f52;
+  border-radius: 64px;
+  overflow-y: hidden;
+}
+.popup-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.questions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  border-radius: 12px;
+}
+
+.q {
+  padding: 9px;
+  color: #fefae0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.qbtn {
+  border-radius: 10px;
+  display: flex;
+}
+
+.questionno-btn {
+  border-radius: 24px;
+  background-color: #a9b388;
+  color: #fefae0;
+  font-size: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px 30px 0px 0px;
+  font-weight: 600;
+  height: 45px;
+  width: 80px;
+}
+
+.questionyes-btn {
+  border-radius: 24px;
+  background-color: #a9b388;
+  color: #fefae0;
+  font-size: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0px 0px 0px;
+  font-weight: 600;
+  height: 45px;
+  width: 80px;
+}
+
+.questionno-btn.active {
+  background-color: #b99470;
+}
+
+.questionyes-btn.active {
+  background-color: #b99470;
+}

@@ -737,3 +737,4 @@ const languages = [
     language_name: "Zulu",
   },
 ];
+module.exports = languages;

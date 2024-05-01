@@ -81,4 +81,4 @@ const interests = [
   { interest_id: "80", interest_name: "Travel" },
   { interest_id: "81", interest_name: "Spotify" },
 ];
-export default interests;
+module.exports = interests;

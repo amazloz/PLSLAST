@@ -7,36 +7,71 @@
 .list-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: #9dc08b;
+  background: #5f6f52;
   margin: auto;
   margin-top: 30px;
   width: 900px;
+  height: 500px;
   border-radius: 64px;
   padding: 32px;
+  overflow-y: visible;
 }
 .headers {
-  display: flex;
-  justify-content: space-between;
-  color: #edf1d6;
-  width: 90%;
+  color: #fefae0;
+  width: 100%;
+}
+
+.headers h1 {
   padding: 12px;
   margin: 0 15px;
 }
-.lists {
+
+.funderline {
+  height: 5px;
+  width: 100%;
+  background-color: #fefae0;
+}
+
+.friend_titles {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 70%;
+  margin: 5px 0px 10px 90px;
+}
+
+.friend_titles p {
+  color: #fefae0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   padding: 12px;
-  background-color: #edf1d6;
+  background-color: #5f6f52;
   border-radius: 24px;
-  padding: 15px;
-  margin: 15px;
+  margin: 15px 0px 0px 0px;
+}
+.onefriend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  background-color: #fefae0;
+  border-radius: 24px;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 .usernames {
-  font-size: 20px;
+  font-size: 24px;
   padding: 7px;
   color: #40513b;
+}
+
+.usernames p {
+  margin-left: 20px;
 }
 
 .delete {
@@ -52,4 +87,23 @@
   font-size: 20px;
   font-weight: 700;
   margin-right: 8px;
+}
+
+.friendcontrolls {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+}
+
+.friend_button {
+  background-color: #fefae0;
+  border: none;
+  cursor: pointer;
+  border-radius: 24px;
+}
+
+.friend_button img {
+  height: 36px;
+  width: auto;
 }

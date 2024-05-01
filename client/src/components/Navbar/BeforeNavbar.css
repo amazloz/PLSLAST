@@ -1,7 +1,3 @@
-* {
-  font-family: "Bitter", serif;
-}
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -16,22 +12,17 @@ nav .title {
   margin: 1rem;
   font-weight: bold;
   text-decoration: none;
-  color: white;
+  color: #5f6f52;
 }
 
 nav ul {
   display: flex;
 }
 
-nav ul li {
-  list-style: none;
-}
-
 nav ul li a {
   display: flex;
   justify-content: center;
   text-decoration: none;
-  color: white;
   padding: 0.5rem;
   margin: 0 0.5rem;
   border-radius: 0.5rem;
@@ -40,42 +31,18 @@ nav ul li a {
   width: 120px;
 }
 
-nav ul .butn2:not(.active):hover {
-  background-color: #40513b;
-  border-radius: 0.5rem;
-}
-nav ul .butn2:focus {
-  background-color: #40513b;
-  border-radius: 0.5rem;
-}
-
-.butn2 {
+.buttonnav {
   text-decoration: none;
-  color: white;
+  color: #fefae0;
   border-radius: 0.5rem;
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: 600;
   padding: 10px 15px 10px 15px;
   margin: 20px;
   cursor: pointer;
 }
-.loginbutton {
-  text-decoration: none;
-  color: white;
-  border-radius: 0.5rem;
-  font-size: 24px;
-  padding: 10px 15px 10px 15px;
-  margin: 20px;
-  cursor: pointer;
-  background-color: #40513b;
-  border: none;
-}
 
-.navbar.fixed .title {
-  color: #609966;
-  transition: 0.3s ease-in-out;
-}
-
-.navbar.fixed .butn2 {
-  color: #609966;
+.navbar.fixed .buttonnav {
+  color: #5f6f52;
   transition: 0.3s ease-in-out;
 }

@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRegisterMutation } from "../slices/usersApiSlice";
 import Navbar from "../components/Navbar/Navbar";
 import { setProfiles } from "../slices/profileSlice";
+import { Link } from "react-router-dom";
+
+import "./Register.css";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -59,22 +62,31 @@ export default function Register() {
       <Navbar />
       <div className="formcontainer">
         <div className="headertitle">
-          <div className="ttle">Бүртгүүлэх</div>
+          <div className="ttle">Sign Up</div>
           <div className="underline"></div>
         </div>
-        <form onSubmit={handleRegister} className="loginform">
+        <form onSubmit={handleRegister} className="signupform">
           <input
             type="text"
-            placeholder="Хэрэглэгчийн нэр оруулна уу..."
+            placeholder="Enter username..."
             value={data.name}
             onChange={(e) => setData({ ...data, name: e.target.value })}
           />
           <input
             type="email"
-            placeholder="Имэйл хаяг оруулна уу..."
+            placeholder="Enter email..."
             value={data.email}
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
+          <select
+            value={data.gender}
+            onChange={(e) => setData({ ...data, gender: e.target.value })}>
+            <option value="" disabled>
+              Select gender...
+            </option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+          </select>
           <input
             type="date"
             value={data.birthdate}
@@ -82,22 +94,20 @@ export default function Register() {
           />
           <input
             type="password"
-            placeholder="Нууц үг оруулна уу..."
+            placeholder="Enter password..."
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
-          <select
-            value={data.gender}
-            onChange={(e) => setData({ ...data, gender: e.target.value })}>
-            <option value="" disabled>
-              Хүйс сонгоно уу...
-            </option>
-            <option value="male">male</option>
-            <option value="female">female</option>
-          </select>
-          <button type="submit" className="buttn">
-            Бүртгүүлэх
-          </button>
+          <input type="password" placeholder="Repeat password..." />
+
+          <div className="buttons2">
+            <Link to="/login" className="button green long">
+              Log In
+            </Link>
+            <button type="submit" className="button browns short">
+              Sign Up
+            </button>
+          </div>
         </form>
       </div>
     </div>

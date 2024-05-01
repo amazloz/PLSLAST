@@ -24,18 +24,21 @@ const AfterNavbar = () => {
 
   return (
     <div className="navcon">
-      <Link to="/" className="logo">
+      <Link to="/" className="title">
         Talkis
       </Link>
       <div className="afretnav">
-        <Link to="/match" className="butn">
-          Ярих
+        <Link to="/match" className="buttonnav">
+          Match
         </Link>
-        <Link to="/userprofile" className="butn">
-          Профайл
+        <Link to="/userprofile" className="buttonnav">
+          Profile
+        </Link>
+        <Link to="/friendslist" className="buttonnav">
+          Friends
         </Link>
       </div>
-      <Link className="btn2" onClick={logoutHandler}>
+      <Link className="brown" onClick={logoutHandler}>
         Log out
       </Link>
     </div>

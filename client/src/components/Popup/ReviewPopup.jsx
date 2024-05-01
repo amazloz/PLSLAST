@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { setcallInfo } from "../../slices/callSlice";
-import "./QuestionPopup.css";
+import "./ReviewPopup.css";
 import { useDispatch } from "react-redux";
 
 const ReviewPopup = ({ closereviewpopup }) => {
@@ -28,49 +28,47 @@ const ReviewPopup = ({ closereviewpopup }) => {
   return (
     <div className="popupbg">
       <div className="popup-container">
-        <div className="popup-header">
-          <h1>Review</h1>
-        </div>
+        <div className="popup-header"></div>
         <div className="popup-body">
           <div className="questions">
             <div className="q">
-              <p>Энэ хүн зохисгүй үг хэллэг ашиглсан уу?</p>
+              <p>Was this person over 18?</p>
             </div>
             <div className="qbtn">
               <button
-                className={`save-btn ${
+                className={`questionno-btn ${
                   selectedOptions.question1 === "No" ? "active" : ""
                 }`}
                 onClick={() => handleOptionClick("question1", "No")}>
-                Үгүй
+                No
               </button>
               <button
-                className={`save-btn ${
+                className={`questionyes-btn ${
                   selectedOptions.question1 === "Yes" ? "active" : ""
                 }`}
                 onClick={() => handleOptionClick("question1", "Yes")}>
-                Тийм
+                Yes
               </button>
             </div>
           </div>
           <div className="questions">
             <div className="q">
-              <p>Энэ хүн 18-аас дээш настай байсан уу?</p>
+              <p>Was this person respectful?</p>
             </div>
             <div className="qbtn">
               <button
-                className={`save-btn ${
+                className={`questionno-btn ${
                   selectedOptions.question2 === "No" ? "active" : ""
                 }`}
                 onClick={() => handleOptionClick("question2", "No")}>
-                Үгүй
+                No
               </button>
               <button
-                className={`save-btn ${
+                className={`questionyes-btn ${
                   selectedOptions.question2 === "Yes" ? "active" : ""
                 }`}
                 onClick={() => handleOptionClick("question2", "Yes")}>
-                Тийм
+                Yes
               </button>
             </div>
           </div>

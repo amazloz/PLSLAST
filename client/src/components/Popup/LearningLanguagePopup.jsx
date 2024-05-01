@@ -47,11 +47,6 @@ const LearningLanguagePopup = ({ closelearninglanguagepopup }) => {
   return (
     <div className="popupbg">
       <div className="popupcontainer">
-        <button
-          className="save-btn"
-          onClick={() => closelearninglanguagepopup(false)}>
-          X
-        </button>
         <div className="popupheader">
           <h1>Choose your learning language</h1>
         </div>

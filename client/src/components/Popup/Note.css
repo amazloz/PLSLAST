@@ -1,0 +1,15 @@
+.notechoose-btn {
+  margin: 10px;
+  padding: 10px;
+  font-size: 24px;
+  background-color: #5f6f52;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.notechoose-btn.selected {
+  background-color: #b99470;
+  color: #fff;
+}

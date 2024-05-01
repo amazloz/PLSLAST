@@ -5,14 +5,16 @@
   margin: auto;
   margin-top: 100px;
   width: 900px;
+  height: 500px;
   padding-bottom: 30px;
-  background: #9dc08b;
+  background: #5f6f52;
   border-radius: 64px;
 }
 .headertitle {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   margin: 20px 0 20px 0;
 }
 .ttle {
@@ -20,44 +22,59 @@
   font-size: 48px;
   font-weight: 700;
 }
-.underline {
-  width: 78px;
-  height: 6px;
-  background: white;
-  border-radius: 9px;
-}
+
 .loginform {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 input {
   border: 0;
-  border-radius: 10px;
+  border-radius: 24px;
   font-size: 18px;
   width: 320px;
   margin: 20px;
   padding: 10px;
 }
-.buttn {
-  background-color: #40513b;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 20px;
+.buttons {
+  margin-top: 40px;
+}
+.button {
   align-self: center;
-  border: 0;
+  border: none;
+  text-decoration: none;
+  color: #ffffff;
   border-radius: 24px;
-  padding: 15px;
-  width: 200px;
+  font-size: 24px;
+  font-weight: 500;
+  border: none;
   cursor: pointer;
   margin: 15px;
 }
 
+.browns {
+  background-color: #b99470;
+}
+
+.green {
+  background-color: #a9b388;
+}
+
+.long {
+  padding: 5px 43px 8px 43px;
+}
+
+.short {
+  padding: 5px 35px 8px 35px;
+}
+
 select {
   border: 0;
-  border-radius: 10px;
+  border-radius: 24px;
   font-size: 18px;
   width: 340px;
   margin: 20px;
   padding: 10px;
+  background-color: #fefae0;
 }

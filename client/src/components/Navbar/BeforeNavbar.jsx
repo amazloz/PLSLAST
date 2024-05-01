@@ -16,47 +16,41 @@ const BeforeNavbar = () => {
 
   return (
     <nav className={fix ? "navbar fixed" : "navbar"}>
-      <a
-        href="/"
-        to="home"
-        spy={true}
-        smooth={true}
-        duration={500}
-        className="title">
+      <a href="/" className="title">
         Talkis
       </a>
       <ul>
         <Link
           href="/"
           to="home"
-          className="butn2"
+          className="buttonnav"
           spy={true}
           smooth={true}
           duration={500}>
-          Нүүр
+          Home
         </Link>
         <Link
           href="about"
           to="about"
-          className="butn2"
+          className="buttonnav"
           spy={true}
           smooth={true}
-          duration={600}>
-          Тухай
+          duration={1000}>
+          About
         </Link>
         <Link
           href="about"
           to="contact"
-          className="butn2"
+          className="buttonnav"
           spy={true}
           smooth={true}
-          duration={800}>
-          Холбоо барих
+          duration={1000}>
+          Contact
         </Link>
-        <a href="/login">
-          <button className="loginbutton">Нэвтрэх</button>
-        </a>
       </ul>
+      <a href="/login">
+        <button className="brown">Log In</button>
+      </a>
     </nav>
   );
 };

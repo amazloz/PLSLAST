@@ -9,6 +9,7 @@ import Register from "./pages/Register";
 import Match from "./pages/Match";
 import Friends from "./pages/Friends";
 import Room from "./pages/Room";
+import Load from "./pages/Load";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/friendslist" element={<Friends />} />
         <Route path="/room" element={<Room />} />
+        <Route path="/load" element={<Load />} />
       </Routes>
       <Toaster position="top-right" toastOptions={{ duration: 2000 }} />
     </Router>

@@ -49,11 +49,6 @@ const InterestPopup = ({ closeinterestpopup }) => {
       <div className="popupcontainer">
         <div className="popupheader">
           <h1>Choose your hobby</h1>
-          <button
-            className="close-btn"
-            onClick={() => closeinterestpopup(false)}>
-            X
-          </button>
         </div>
         <div className="popupbody">
           {interests.map((interest) => (

@@ -2,16 +2,25 @@ import React, { useEffect, useRef } from "react";
 import "./Room.css";
 import boy from "../media/boy.png";
 import girl from "../media/girl.png";
-import ActionButtons from "../components/videoComponents/ActionButtons";
+import nomic from "../media/nomic.png";
+import yesmic from "../media/yesmic.png";
+import novideo from "../media/novideo.png";
+import yesvideo from "../media/yesvideo.png";
+import hangup from "../media/endcall.png";
+
 import { useDispatch, useSelector } from "react-redux";
 import CountDown from "../components/videoComponents/CountDown";
 import createPeerConnection from "../utils/createPeerConnection";
 import socketConnection from "../utils/socketConnection";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { setcallInfo } from "../slices/callSlice";
+import Chat from "../components/Chat/Chat";
+
+import NotesButton from "../components/buttons/NotesButton";
 
 const Room = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const getParams = useSearchParams();
   const callInfo = useSelector((state) => state.call.callInfo);
   const { profileInfo } = useSelector((state) => state.profile);
@@ -19,6 +28,11 @@ const Room = () => {
   const myFeedEl = useRef(null);
   const streams = {};
   const gender = profileInfo.gender;
+
+  const hangupCall = () => {
+    dispatch(setcallInfo({ current: "complete" }));
+    navigate("/match");
+  };
 
   useEffect(() => {
     const fetchMedia = async () => {
@@ -63,20 +77,42 @@ const Room = () => {
 
   return (
     <div className="roombody">
-      <div className="roomcontrols">
-        <ActionButtons feed={myFeedEl} />
-        <div className="time">
-          <CountDown seconds={600} />
+      <div className="contents">
+        <div className="videofeed">
+          <div className="localvideo">
+            <img src={gender === "male" ? boy : girl} />
+          </div>
+          <div className="remotevideo">
+            <img src={gender === "female" ? boy : girl} />
+          </div>
+        </div>
+        <div className="chatbox">
+          <Chat></Chat>
         </div>
       </div>
 
       <div className="main">
-        <div className="video">
-          <img src={gender === "female" ? boy : girl} className="remotevideo" />
-          <img src={gender === "male" ? boy : girl} className="localvideo" />
-        </div>
+        <div className="video"></div>
         <video className="remotevideos"></video>
         <video className="localvideos" autoPlay ref={myFeedEl}></video>
+      </div>
+      <div className="roomcontrols">
+        <div className="roombuttons">
+          <button onClick={hangupCall} className="endbtn">
+            <img src={hangup} alt="screenshare" />
+          </button>
+          <button className="otherbtn">
+            <img src={yesmic} />
+          </button>
+          <button className="otherbtn">
+            <img src={yesvideo} />
+          </button>
+        </div>
+
+        <div className="time">
+          <CountDown seconds={600} />
+        </div>
+        <NotesButton />
       </div>
     </div>
   );

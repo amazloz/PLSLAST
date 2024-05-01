@@ -7,6 +7,7 @@ import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import Navbar from "../components/Navbar/Navbar";
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -46,25 +47,30 @@ const Login = () => {
       <Navbar />
       <div className="formcontainer">
         <div className="headertitle">
-          <div className="ttle">Нэвтрэх</div>
+          <div className="ttle">Log In</div>
           <div className="underline"></div>
         </div>
         <form onSubmit={submitHandler} className="loginform">
           <input
             type="email"
-            placeholder="Имэйл оруулна уу..."
+            placeholder="Enter email..."
             value={data.email}
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
           <input
             type="password"
-            placeholder="Нууц үг оруулна уу..."
+            placeholder="Enter password..."
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
-          <button type="submit" className="buttn">
-            Нэвтрэх
-          </button>
+          <div className="buttons">
+            <Link to="/register" className="button green short">
+              Sign Up
+            </Link>
+            <button type="submit" className="button browns long">
+              Log In
+            </button>
+          </div>
         </form>
       </div>
     </div>

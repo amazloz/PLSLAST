@@ -73,11 +73,6 @@ const UserInfoPopup = ({ closeuserinfopopup }) => {
       <div className="popupcontainer">
         <div className="popupheader">
           <h1>Edit your personal infos</h1>
-          <button
-            className="close-btn"
-            onClick={() => closeuserinfopopup(false)}>
-            X
-          </button>
         </div>
         <div className="popupbody">
           <form>
@@ -102,13 +97,10 @@ const UserInfoPopup = ({ closeuserinfopopup }) => {
               value={sbirthdate}
               onChange={handleChange}
             />
-            <input
-              type="text"
-              placeholder="male or female"
-              name="gender"
-              value={sgender}
-              onChange={handleChange}
-            />
+            <select name="gender">
+              <option value="male">male</option>
+              <option value="female">female</option>
+            </select>
           </form>
         </div>
         <div className="popupfooter">

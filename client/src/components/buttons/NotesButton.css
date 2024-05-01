@@ -1,0 +1,15 @@
+.open-body {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+}
+
+.open {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.open img {
+  height: 50px;
+}

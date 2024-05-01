@@ -1,31 +1,28 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Bitter", serif;
+  font-family: "Outfit";
 }
 body {
-  background-color: #609966;
+  background-color: #a9b388;
 }
+
 .one {
   height: 88.8vh;
-  background-color: #609966;
+  background-color: #a9b388;
 }
 .two {
   height: 100vh;
-  background-color: white;
+  background-color: #fefae0;
   display: grid;
   justify-content: center;
 }
 .three {
   height: 100vh;
-  background-color: #609966;
-}
-.four {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #609966;
+  background-color: #a9b388;
 }
 .one .containerbox {
   padding-top: 80px;
@@ -36,27 +33,39 @@ body {
   display: grid;
   text-align: left;
   height: 300px;
-  width: 500px;
+  width: 400px;
   margin-top: 120px;
 }
 .one .title h1 {
-  color: white;
+  color: #fefae0;
   font-size: 48px;
 }
 
 .one .title p {
-  color: white;
+  color: #fefae0;
   font-size: 32px;
 }
-.btn {
+.try {
   text-decoration: none;
-  color: white;
-  border-radius: 0.5rem;
+  color: #ffffff;
+  border-radius: 24px;
   font-size: 24px;
-  padding: 10px 15px 10px 15px;
+  font-weight: 500;
+  padding: 8px 30px 0px 30px;
   margin-top: 30px;
-  width: 100px;
-  background-color: #40513b;
+  background-color: #b99470;
+  width: 165px;
+}
+.brown {
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 24px;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 5px 30px 8px 30px;
+  background-color: #b99470;
+  border: none;
+  cursor: pointer;
 }
 .call img {
   height: 600px;
@@ -70,14 +79,14 @@ body {
   margin-top: 150px;
 }
 .two h1 {
-  color: #40513b;
+  color: #5f6f52;
   font-size: 32px;
   display: flex;
   justify-content: center;
 }
 
 .two .abouttitle p {
-  color: #40513b;
+  color: #5f6f52;
   font-size: 24px;
   margin-top: 20px;
   font-weight: 500;
@@ -93,12 +102,13 @@ body {
 }
 .idkk ul li {
   font-size: 28px;
-  color: #40513b;
+  color: #5f6f52;
   font-weight: 500;
   padding: 10px;
 }
 .aboutimg {
   margin-top: 220px;
+  margin-right: 100px;
   height: 300px;
 }
 .globeimg {
@@ -107,7 +117,7 @@ body {
 .contact-container {
   height: 500px;
   width: 1500px;
-  background: #9dc08b;
+  background: #40513b;
   border-radius: 64px;
   display: flex;
   justify-content: space-evenly;
@@ -117,6 +127,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 70px;
+  margin-left: 20px;
 }
 .contact-info {
   display: flex;
@@ -126,57 +137,47 @@ body {
   width: 300px;
 }
 .form-one {
-  width: 600px;
+  width: 580px;
   display: flex;
   justify-content: space-between;
 }
-.four input {
+input {
   width: 250px;
   height: 30px;
-  background: #edf1d6;
+  padding: 10px 20px 10px 13px;
+  font-weight: 500;
+  font-size: 15px;
+  background: #fefae0;
+  border-radius: 24px;
+  border: none;
 }
 textarea {
-  margin-top: 30px;
-  margin-left: 20px;
-  width: 560px;
-  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 18px;
+  padding: 10px;
+  width: 543px;
+  border-radius: 24px;
   font-size: 15px;
-  background: #edf1d6;
+  background: #fefae0;
 }
-.four a {
-  text-decoration: none;
-  color: black;
+.three h1 {
+  color: #fefae0;
 }
-.four h1 {
-  color: #40513b;
-}
-.four p {
-  color: #40513b;
+.three p {
+  color: #fefae0;
   padding: 15px;
   font-weight: 500;
 }
 .submit-form {
   border-radius: 24px;
-  background-color: #edf1d6;
+  background-color: #b99470;
   outline: none;
   border: none;
   cursor: pointer;
-  color: #40513b;
-  margin: 30px 0 20px 25px;
-  padding: 15px;
-  width: 150px;
-}
-.footer {
-  background-color: #9dc08b;
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  margin-top: 170px;
-}
-.footertitles {
-  display: flex;
-}
-.socials {
-  display: flex;
-  margin-left: 300px;
+  color: #ffffff;
+  margin: 15px 0 20px 18px;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 8px;
+  width: 120px;
 }

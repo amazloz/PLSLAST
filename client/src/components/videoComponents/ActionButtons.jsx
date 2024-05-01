@@ -18,6 +18,7 @@ const ActionButtons = ({ myFeedEl }) => {
         <HangUpButton className="endbtn" />
       </div>
       <AudioButton />
+      <VideoButton />
     </div>
   );
 };

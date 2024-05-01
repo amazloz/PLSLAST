@@ -4,6 +4,8 @@ import AfterNavbar from "../components/Navbar/AfterNavbar";
 import "./Match.css";
 import { useSelector } from "react-redux";
 import ReviewPopup from "../components/Popup/ReviewPopup";
+import AddFriendPopup from "../components/Popup/AddFriendPopup";
+import NotesButton from "../components/buttons/NotesButton";
 
 const Match = () => {
   const { profileInfo } = useSelector((state) => state.profile);
@@ -26,35 +28,38 @@ const Match = () => {
   return (
     <div>
       <AfterNavbar />
-      <div className="main-container">
-        {/*{openFriendPopup && (
+      <div className="match-container">
+        {openFriendPopup && (
           <AddFriendPopup closefriendpopup={setOpenFriendPopup} />
-        )}*/}
+        )}
         {openReviewPopup && (
           <ReviewPopup closereviewpopup={setOpenReviewPopup} />
         )}
 
-        <div className="motiv-title">
-          <h1>Хамтрагчаа олох</h1>
-          <h1>Яриа үүсгэх</h1>
-          <h1>Найзууд болох</h1>
+        <div className="title-container">
+          <div className="titles">
+            <p>Find your partner</p>
+            <p>Talk with them</p>
+            <p>Become friends</p>
+          </div>
+          <div className="match-underline"></div>
         </div>
-        <div className="longunderline"></div>
-        <div className="infocontainer">
-          <div className="languageinfos">
-            <p>Төрөлх хэл: {nativelanguage}</p>
+        <div className="info-box">
+          <div className="infos">
+            <p>Native Language: {nativelanguage}</p>
           </div>
-          <div className="languageinfos">
-            <p>Сурч буй хэл: {learninglanguage}</p>
+          <div className="infos">
+            <p>Learning Language: {learninglanguage}</p>
           </div>
-          <div className="languageinfos">
-            <p>Хобби: {interest}</p>
+          <div className="infos">
+            <p>Interests: {interest}</p>
           </div>
-          <Link to="/room" className="mbtn">
-            Дуудлага эхлүүлэх
-          </Link>
         </div>
+        <Link to="/load" className="brown big">
+          Start Matching
+        </Link>
       </div>
+      <NotesButton />
     </div>
   );
 };

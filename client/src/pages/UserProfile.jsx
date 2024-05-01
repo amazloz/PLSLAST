@@ -6,6 +6,7 @@ import NativeLanguagePopup from "../components/Popup/NativeLanguagePopup";
 import UserInfoPopup from "../components/Popup/UserInfoPopup";
 import LearningLanguagePopup from "../components/Popup/LearningLanguagePopup";
 import InterestPopup from "../components/Popup/InterestPopup";
+import NotesButton from "../components/buttons/NotesButton";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -52,22 +53,22 @@ const UserProfile = () => {
               onClick={() => {
                 setOpenUserinfoPopup(true);
               }}>
-              Хэрэглэгчийн мэдээлэл засах
+              Edit user info
             </button>
             {openUserinfoPopup && (
               <UserInfoPopup closeuserinfopopup={setOpenUserinfoPopup} />
             )}
             <p>
-              Хэрэглэгчийн нэр: <b>{name}</b>{" "}
+              Username: <b>{name}</b>{" "}
             </p>
             <p>
-              Имэйл хаяг: <b>{email}</b>{" "}
+              Email address: <b>{email}</b>{" "}
             </p>
             <p>
-              Төрсөн он: <b>{birthdate}</b>{" "}
+              Brith date: <b>{birthdate}</b>{" "}
             </p>
             <p>
-              Хүйс: <b>{gender}</b>
+              Gender: <b>{gender}</b>
             </p>
           </div>
           <div className="languageinfo">
@@ -76,7 +77,7 @@ const UserProfile = () => {
               onClick={() => {
                 setOpenNativeLanguagePopup(true);
               }}>
-              Төрөлх хэл засах
+              + Native language
             </button>
             {openNativeLanguagePopup && (
               <NativeLanguagePopup
@@ -94,7 +95,7 @@ const UserProfile = () => {
               onClick={() => {
                 setOpenLearningLanguagePopup(true);
               }}>
-              Сурч буй хэл засах
+              + Learning language
             </button>
             {openLearningLanguagePopup && (
               <LearningLanguagePopup
@@ -111,7 +112,7 @@ const UserProfile = () => {
               onClick={() => {
                 setOpenInterestPopup(true);
               }}>
-              Хобби засах
+              + Hobby
             </button>
             {openInterestPopup && (
               <InterestPopup closeinterestpopup={setOpenInterestPopup} />
@@ -122,6 +123,7 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
+      <NotesButton />
     </div>
   );
 };

@@ -1,47 +1,53 @@
+.roombody {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: #fefae0;
+}
+
 .roomcontrols {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 70px;
-  width: 100%;
-  background-color: #9dc08b;
+  width: 1350px;
+  margin-left: 100px;
 }
+
+.roombuttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .endbtn {
-  background-color: #40513b;
+  background-color: #b99470;
   height: 50px;
-  width: 150px;
+  width: 120px;
+  margin: 0px 20px 0px 105px;
   border: none;
   outline: none;
   border-radius: 20px;
   color: #edf1d6;
-  margin: 10px;
 }
-.otherbuttons {
-  display: flex;
-  margin-left: 1120px;
-}
+
 .otherbtn {
   height: 50px;
-  width: 100px;
+  width: 80px;
   border: none;
   outline: none;
   border-radius: 20px;
-  color: #edf1d6;
-  margin: 25px;
-  background-color: #40513b;
   cursor: pointer;
+  margin: 10px;
+  background-color: #fefae0;
 }
 .endbtn img {
   height: 50px;
-  margin-bottom: 10px;
-  margin-left: 50px;
+  padding: 0px 0px 10px 4px;
 }
 .otherbtn img {
   margin-top: 5px;
-  height: 32px;
-}
-.main {
-  display: flex;
-  height: 853px;
+  height: 40px;
 }
 
 .video {
@@ -49,11 +55,45 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #609966;
+}
+
+.contents {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 30px 0px 30px;
+}
+
+.localvideo {
+  height: 350px;
+  width: 600px;
+  background-color: #fff;
+  border-radius: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .remotevideo {
-  height: 800px;
+  height: 350px;
+  width: 600px;
+  background-color: #fff;
+  border-radius: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
+
+.videofeed img {
+  height: 300px;
+}
+
+.chatbox {
+  height: 750px;
+  width: 1000px;
+  background-color: #fff;
+  border-radius: 48px;
+}
+
 .remotevideos {
   height: 1px;
   width: 1px;
@@ -62,18 +102,9 @@
   height: 1px;
   width: 1px;
 }
-
-.localvideo {
-  height: 300px;
-  background-color: #609166;
-  position: absolute;
-  top: 100px;
-  left: 1400px;
-  border-radius: 36px;
-  z-index: 2;
-}
 .time {
-  margin-right: 30px;
-  font-weight: 600;
-  font-size: 24px;
+  margin-right: 70px;
+  font-weight: 700;
+  font-size: 32px;
+  color: #b99470;
 }

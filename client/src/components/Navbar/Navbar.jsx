@@ -1,21 +1,13 @@
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+import "./AfterNavbar.css";
 
 const Navbar = () => {
   return (
-    <nav>
-      <Link to="/" className="logo">
+    <div className="navcon">
+      <Link to="/" className="title">
         Talkis
       </Link>
-      <div>
-        <Link to="/register" className="butn">
-          Бүртгүүлэх
-        </Link>
-        <Link to="/login" className="butn">
-          Нэвтрэх
-        </Link>
-      </div>
-    </nav>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { setcallInfo } from "../../slices/callSlice";
-import "./QuestionPopup.css";
+import "./FriendPopup.css";
 import { useDispatch } from "react-redux";
 
 const AddFriendPopup = ({ closefriendpopup }) => {
@@ -15,6 +15,8 @@ const AddFriendPopup = ({ closefriendpopup }) => {
       ...selectedOptions,
       [question]: option,
     });
+    dispatch(setcallInfo({ current: "idle" }));
+    closefriendpopup(false);
   };
 
   const handleSaveClick = () => {
@@ -27,37 +29,32 @@ const AddFriendPopup = ({ closefriendpopup }) => {
 
   return (
     <div className="popupbg">
-      <div className="popup-container">
-        <div className="popup-header">
-          <h1>Review</h1>
-        </div>
-        <div className="popup-body">
-          <div className="questions">
-            <div className="q">
-              <p>Энэ хүнийг найз болгож нэммээр байна уу?</p>
-            </div>
-            <div className="qbtn">
-              <button
-                className={`save-btn ${
-                  selectedOptions.question1 === "No" ? "active" : ""
-                }`}
-                onClick={() => handleOptionClick("question1", "No")}>
-                Үгүй
-              </button>
-              <button
-                className={`save-btn ${
-                  selectedOptions.question1 === "Yes" ? "active" : ""
-                }`}
-                onClick={() => handleOptionClick("question1", "Yes")}>
-                Тийм
-              </button>
+      <div className="fpopup-container">
+        <div className="fpopup-header"></div>
+        <div className="fpopup-body">
+          <div className="fquestions">
+            <div className="fq">
+              <p>Do you want to add this person as a friend?</p>
             </div>
           </div>
         </div>
-        <div className="popup-footer">
-          <button className="save-btn" onClick={handleSaveClick}>
-            Save
-          </button>
+        <div className="fpopup-footer">
+          <div className="fqbtn">
+            <button
+              className={`fquestionno-btn ${
+                selectedOptions.question1 === "No" ? "active" : ""
+              }`}
+              onClick={() => handleOptionClick("question1", "No")}>
+              No
+            </button>
+            <button
+              className={`fquestionyes-btn ${
+                selectedOptions.question1 === "Yes" ? "active" : ""
+              }`}
+              onClick={() => handleOptionClick("question1", "Yes")}>
+              Yes
+            </button>
+          </div>
         </div>
       </div>
     </div>
